@@ -10,6 +10,22 @@ db.run(`
 `);
 
 function findAllProdutoRepository() {
+    return new Promise((resolve, reject) => {
+        db.all(
+            `SELECT * FROM produto`,
+            [],
+            (error, rows) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    resolve(rows);
+                }
+            }
+        );
+    });
+}
 
+export default {
+    findAllProdutoRepository
 }
 
